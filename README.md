@@ -55,7 +55,7 @@ GET with payload
 $info = $li->get('/people/~/connections', array('modified' => 'new', 'modified-since' => 1267401600000));
 ```
 
-Post
+POST 
 ```php
 $response = $li->post($endpoint, array $data);
 ```
