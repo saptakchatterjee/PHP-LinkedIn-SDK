@@ -59,3 +59,8 @@ POST
 ```php
 $response = $li->post($endpoint, array $data);
 ```
+
+PUT 
+```php
+$response = $li->put($endpoint, array $data);
+```
