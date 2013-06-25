@@ -147,6 +147,7 @@
 	     * 
 	     * @param string $state
 	     * @throws \InvalidArgumentException
+	     * @return \LinkedIn\LinkedIn
 	     */
 	    public function setState($state){
 	        
