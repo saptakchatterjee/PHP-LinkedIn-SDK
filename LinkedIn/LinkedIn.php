@@ -157,6 +157,8 @@
 	        
 	        $this->_state = $state;
 	        
+	        return $this;
+	        
 	    }
 	    
 	    /**
