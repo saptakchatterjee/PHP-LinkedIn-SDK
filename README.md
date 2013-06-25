@@ -45,10 +45,14 @@ $_SESSION['token'] = $token;
 $_SESSION['token_expires_on'] = time() + $token_expires;
 ```
 
-Get some info
+GET some data
 ```php
 $info = $li->get('/people/~');
 $specific = $li->get('/people/~:(first-name,last-name,positions)');
+```
+GET with payload
+```php
+$info = $li->get('/people/~/connections', array('modified' => 'new', 'modified-since' => 1267401600000));
 ```
 
 Post
