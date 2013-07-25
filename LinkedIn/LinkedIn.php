@@ -9,6 +9,7 @@
 	    private $_access_token = null;
 	    private $_access_token_expires = null;
 	    private $_debug_info = null;
+	    private $_curl_handle = null;
 	    
 	    const API_BASE = 'https://api.linkedin.com/v1';
 	    const OAUTH_BASE = 'https://www.linkedin.com/uas/oauth2';
@@ -257,7 +258,7 @@
 	     */
 	    protected function _makeRequest($url, array $payload = array(), $method = 'GET', array $headers = array(), array $curl_options = array()){
 
-	        $ch = curl_init();
+	        $ch = $this->_getCurlHandle();
 
 	        $options = array(
 	        	CURLOPT_CUSTOMREQUEST => strtoupper($method),
@@ -293,6 +294,24 @@
 	        }
 
 	        return $response;
+	    }
+	    
+	    protected function _getCurlHandle(){
+	    
+	    	if (!$this->_curl_handle){
+	    		$this->_curl_handle = curl_init();
+	    	}
+	    		
+	    	return $this->_curl_handle;
+	    
+	    }
+	    
+	    public function __destruct(){
+	    
+	    	if ($this->_curl_handle){
+	    		curl_close($this->_curl_handle);
+	    	}
+	    
 	    }
 	    
 	}
